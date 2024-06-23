@@ -52,8 +52,8 @@ export default class Resources extends EventEmitter {
           this.video[asset.name]
         );
         this.videoTexture[asset.name].flipY = true;
-        this.videoTexture[asset.name].minFilter = THREE.NearesFilter; //THREE.NearestFilter
-        this.videoTexture[asset.name].magFilter = THREE.NearesFilter;
+        this.videoTexture[asset.name].minFilter = THREE.NearestFilter; //THREE.NearestFilter
+        this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].generateMipmaps = false;
         this.videoTexture[asset.name].encoding = THREE.SRGBColorSpace; //Sustitución de sRGBEncoding
 
@@ -65,7 +65,7 @@ export default class Resources extends EventEmitter {
   singleAssetLoaded(asset, file) {
     this.items[asset.name] = file;
     this.loaded++;
-    
+
     if (this.loaded === this.queue) {
       //Si esto es true, todos los assets estan cargados
       this.emit("ready");

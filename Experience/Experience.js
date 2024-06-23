@@ -35,10 +35,12 @@ export default class Experience{
 
     resize(){
         this.camera.resize(); //Este llama a la funcion update en Camara.js
+        this.world.resize();
         this.renderer.resize(); //Este llama a la funcion update en Renderer.js
     }
     update(){
         this.camera.update(); //Este llama a la funcion update en Camara.js
+        this.world.update();
         this.renderer.update(); //Este llama a la funcion update en Renderer.js
     }
 }

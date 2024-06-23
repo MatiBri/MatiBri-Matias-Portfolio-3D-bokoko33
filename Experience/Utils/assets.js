@@ -8,6 +8,11 @@ export default [
     {
         name: "screen",
         type: "videoTexture",
-        path: "/textures/Coding.mp4",
-    }
+        path: "/textures/coding.mp4",
+    },
+    {
+        name: "foo",
+        type: "videoTexture",
+        path: "/textures/kda.mp4",
+    },
 ];
