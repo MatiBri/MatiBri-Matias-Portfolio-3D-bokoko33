@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1",
     "@ashthornton/asscroll": "^2.0.11",
     "events": "^3.3.0",
     "gsap": "^3.12.5",
@@ -18,8 +19,5 @@
     "vite": "^5.3.1",
     "vite-plugin-node-polyfills": "^0.22.0"
     
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.6.1"
   }
 }
