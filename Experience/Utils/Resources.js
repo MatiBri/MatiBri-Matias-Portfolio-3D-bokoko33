@@ -1,11 +1,13 @@
 //Esto carga todos los recursos y los almacena. De ese modo cuando se quiera acceder por ejemplo a un archivo .glb,
 //se puede hacerlo desde la clase de acá
 
-import EventEmitter from "events";
+import * as THREE from "three";
+
+import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import Experience from "../Experience";
-import * as THREE from "three";
+
 
 export default class Resources extends EventEmitter {
   constructor(assets) {
@@ -51,7 +53,7 @@ export default class Resources extends EventEmitter {
         this.videoTexture[asset.name] = new THREE.VideoTexture(
           this.video[asset.name]
         );
-        this.videoTexture[asset.name].flipY = true;
+        //this.videoTexture[asset.name].flipY = false;
         this.videoTexture[asset.name].minFilter = THREE.NearestFilter; //THREE.NearestFilter
         this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].generateMipmaps = false;
