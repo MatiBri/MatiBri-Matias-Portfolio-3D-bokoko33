@@ -314,12 +314,12 @@ svg {
 /* Fancy Decoration Part of Section */
 .section-title {
   position: relative;
-  color: var(--color-pink);
+  color: var(--color-blue);
 }
 
 .section-title-text {
   display: block;
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 500;
   transform-origin: left;
   transform: skewY(25deg);
@@ -468,4 +468,202 @@ svg {
   .hero-second-subheading {
     font-size: 18px;
   }
+}
+
+/*Para el formulario*/
+
+:root{
+  --bg-card: #0f1724;
+  --card-border: rgba(255,255,255,0.06);
+  --muted: #9aa4b2;
+  --accent: #4ea8de;
+  --gap: 18px;
+  --radius: 12px;
+  --badge-size: 44px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.tech-section { margin-top: 18px; font-family: var(--font-sans); color: #ffa500; }
+.section-heading { font-size: 18px; margin-bottom: 12px; color: #0f0e0e; }
+
+/* Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: var(--gap);
+}
+
+/* Card */
+.tech-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  min-height: 120px;
+}
+.card-title { font-size: 14px; margin: 0 0 10px 0; color: #8B0000; }
+
+/* List */
+.tech-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.tech-item { display:flex; align-items:center; gap:12px; font-size:14px; color: #d0dbe6; }
+
+/* Icon SVG */
+.icon-svg {
+  width: var(--badge-size);
+  height: var(--badge-size);
+  min-width: var(--badge-size);
+  display:inline-block;
+  object-fit:contain;
+  background: rgba(255,255,255,0.02);
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.45);
+  flex-shrink: 0;
+}
+
+/* Fallback badge (for items without svg) */
+.icon.badge {
+  display:inline-grid;
+  place-items:center;
+  width: var(--badge-size);
+  height: var(--badge-size);
+  min-width: var(--badge-size);
+  border-radius: 10px;
+  font-weight:700;
+  color: white;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.45);
+  flex-shrink: 0;
+}
+
+/* Colors per badge (unchanged for fallback) */
+.icon.sql { background: linear-gradient(135deg,#0076a8,#005073); }
+.icon.kendo { background: linear-gradient(135deg,#7b61ff,#5b46e6); }
+.icon.signalr { background: linear-gradient(135deg,#ffd166,#ffb703); color:#1a1200; }
+.icon.cicd { background: linear-gradient(135deg,#7dd3fc,#60a5fa); color:#02283c; }
+.icon.agile { background: linear-gradient(135deg,#ffb4a2,#ff8a80); color:#2b0a03; }
+.icon.test { background: linear-gradient(135deg,#a7f3d0,#6ee7b7); color:#042b1b; }
+.icon.debug { background: linear-gradient(135deg,#ffd6a5,#ffb86b); color:#2b1600; }
+
+/* Label */
+.label { color: var(--color-text); font-size: 13px; line-height:1; }
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  :root { --badge-size: 38px; --gap:12px; }
+  .tech-card { padding: 12px; }
+  .card-title { font-size:13px; }
+  .tech-item { font-size:13px; gap:10px; }
+}
+
+/* Small interaction polish */
+.tech-item:hover .label { color: #e8f8ff; }
+.tech-item:focus-within, .tech-item:focus { outline: 2px solid rgba(78,168,222,0.12); border-radius: 8px; padding: 2px; }
+
+
+/*Seccion de contacto*/
+.contact-section{
+  padding: 3rem;
+  background: #000;
+  color: white;
+  text-align: center;
+}
+
+.contact-section h2{
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+#contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact-form input, #contact-form textarea{
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+#contact-form button{
+  background: black;
+  border: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+#contact-form button:hover{
+  background: #333;
+}
+
+/*Animaciones de carga del contacto*/
+
+#contact-form button.loading{
+  background-color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+#contact-form button.loading::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.flash-messages{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  width: auto;
+}
+
+.alert {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 14px;
+  animation: fade-in-out 5s forwards;
+}
+
+.alert.success{
+  background-color: #4caf50;
+}
+
+.alert-danger{
+  background-color: #f44336;
+}
+
+/*Animacion para desaparecer el mensaje*/
+@keyframes fade-in-out {
+  0%{ opacity:  1;}
+  80%{ opacity:  1;}
+  100%{ opacity:  0;}
 }

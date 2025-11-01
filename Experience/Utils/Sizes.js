@@ -1,5 +1,7 @@
 import { EventEmitter } from "events";
 
+//Esta clase sirve para definir las medidas de la pantalla y detectar cambios en el tamaño de la ventana
+//y el tipo de dispositivo (móvil o escritorio)
 export default class Sizes extends EventEmitter {
   constructor() {
     super();

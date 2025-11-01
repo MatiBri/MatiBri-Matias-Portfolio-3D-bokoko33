@@ -1,3 +1,5 @@
+// Este archivo sirve para gestionar los assets (modelos 3D, texturas, videos, etc.) que se van a cargar en la escena
+// Cada asset tiene un nombre, un tipo y una ruta
 export default [
     {
         name: "room",
