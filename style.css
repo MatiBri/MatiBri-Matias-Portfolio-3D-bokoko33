@@ -667,3 +667,28 @@ svg {
   80%{ opacity:  1;}
   100%{ opacity:  0;}
 }
+
+/* Mensaje de confirmación del formulario */
+.form-success {
+  color: #16a34a; /* verde agradable */
+  background: rgba(22,163,74,0.06); /* suave fondo verde opcional */
+  border: 1px solid rgba(22,163,74,0.15);
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  display: block;         /* el control del show/hide se hace con el atributo hidden */
+  transition: opacity 200ms ease;
+  opacity: 1;
+}
+
+/* Cuando esté oculto vía hidden, respetamos display:block pero se oculta visualmente */
+.form-success[hidden] {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  border: 0;
+  overflow: hidden;
+}
