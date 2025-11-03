@@ -471,7 +471,6 @@ svg {
 }
 
 /*Para el formulario*/
-
 :root{
   --bg-card: #0f1724;
   --card-border: rgba(255,255,255,0.06);
@@ -486,14 +485,12 @@ svg {
 .tech-section { margin-top: 18px; font-family: var(--font-sans); color: #ffa500; }
 .section-heading { font-size: 18px; margin-bottom: 12px; color: #0f0e0e; }
 
-/* Grid */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: var(--gap);
 }
 
-/* Card */
 .tech-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
   border: 1px solid var(--card-border);
@@ -504,7 +501,6 @@ svg {
 }
 .card-title { font-size: 14px; margin: 0 0 10px 0; color: #8B0000; }
 
-/* List */
 .tech-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .tech-item { display:flex; align-items:center; gap:12px; font-size:14px; color: #d0dbe6; }
 
@@ -522,7 +518,6 @@ svg {
   flex-shrink: 0;
 }
 
-/* Fallback badge (for items without svg) */
 .icon.badge {
   display:inline-grid;
   place-items:center;
@@ -537,7 +532,6 @@ svg {
   flex-shrink: 0;
 }
 
-/* Colors per badge (unchanged for fallback) */
 .icon.sql { background: linear-gradient(135deg,#0076a8,#005073); }
 .icon.kendo { background: linear-gradient(135deg,#7b61ff,#5b46e6); }
 .icon.signalr { background: linear-gradient(135deg,#ffd166,#ffb703); color:#1a1200; }
@@ -546,10 +540,8 @@ svg {
 .icon.test { background: linear-gradient(135deg,#a7f3d0,#6ee7b7); color:#042b1b; }
 .icon.debug { background: linear-gradient(135deg,#ffd6a5,#ffb86b); color:#2b1600; }
 
-/* Label */
 .label { color: var(--color-text); font-size: 13px; line-height:1; }
 
-/* Responsive tweaks */
 @media (max-width:720px){
   :root { --badge-size: 38px; --gap:12px; }
   .tech-card { padding: 12px; }
@@ -557,7 +549,6 @@ svg {
   .tech-item { font-size:13px; gap:10px; }
 }
 
-/* Small interaction polish */
 .tech-item:hover .label { color: #e8f8ff; }
 .tech-item:focus-within, .tech-item:focus { outline: 2px solid rgba(78,168,222,0.12); border-radius: 8px; padding: 2px; }
 
@@ -670,19 +661,19 @@ svg {
 
 /* Mensaje de confirmación del formulario */
 .form-success {
-  color: #16a34a; /* verde agradable */
-  background: rgba(22,163,74,0.06); /* suave fondo verde opcional */
+  color: #16a34a;
+  background: rgba(22,163,74,0.06);
   border: 1px solid rgba(22,163,74,0.15);
   padding: 8px 12px;
   margin-top: 10px;
   border-radius: 6px;
   font-weight: 500;
-  display: block;         /* el control del show/hide se hace con el atributo hidden */
+  display: block;
   transition: opacity 200ms ease;
   opacity: 1;
 }
 
-/* Cuando esté oculto vía hidden, respetamos display:block pero se oculta visualmente */
+/* Cuando esté oculto vía hidden, se respeta el display:block */
 .form-success[hidden] {
   opacity: 0;
   height: 0;
@@ -691,4 +682,50 @@ svg {
   margin-top: 0;
   border: 0;
   overflow: hidden;
+}
+
+
+/* Boton fijo */
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: none;
+  display: inline-grid;
+  place-items: center;
+  background: var(--color-pink);
+  color: var(--color-background);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  cursor: pointer;
+  z-index: 150000;
+  transition: transform 160ms ease, opacity 160ms ease;
+  opacity: 0.95;
+  backdrop-filter: blur(6px);
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+  transform: translateY(-4px);
+  outline: none;
+  opacity: 1;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid rgba(78,168,222,0.22);
+  outline-offset: 2px;
+}
+
+/* Ajuste para móvil */
+@media (max-width: 720px) {
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
 }

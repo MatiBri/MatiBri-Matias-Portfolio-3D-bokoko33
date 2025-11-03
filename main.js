@@ -1,4 +1,5 @@
 import './style.css'
+import './Experience/backToTop'
 import Experience from './Experience/Experience'
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
