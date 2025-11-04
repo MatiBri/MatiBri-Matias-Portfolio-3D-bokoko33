@@ -555,6 +555,7 @@ svg {
 
 /*Seccion de contacto*/
 .contact-section{
+  border-radius: 32px;
   padding: 3rem;
   background: #000;
   color: white;
@@ -728,4 +729,219 @@ svg {
     height: 48px;
     border-radius: 10px;
   }
+}
+
+/* Quick Nav (accesos rápidos) */
+.quick-nav {
+  position: fixed;
+  right: 22px;
+  bottom: 92px; /* arriba del back-to-top */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 150000;
+  align-items: center;
+}
+
+.quick-nav-btn {
+  min-width: 44px;
+  height: 44px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--color-blue);        /* ajusta según tu tema */
+  color: var(--color-background);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  transition: transform 150ms ease, opacity 150ms ease;
+  display: inline-grid;
+  place-items: center;
+}
+
+.quick-nav-btn:hover,
+.quick-nav-btn:focus {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.quick-nav-btn:focus-visible {
+  outline: 3px solid rgba(78,168,222,0.22);
+  outline-offset: 2px;
+}
+
+/* Compact on mobile */
+@media (max-width:720px){
+  .quick-nav {
+    right: 14px;
+    bottom: 80px;
+  }
+  .quick-nav-btn { min-width: 40px; height: 40px; font-size: 12px; }
+}
+
+/* Quick nav dropdown (colocado junto al toggle-bar) */
+.quick-nav-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px; /* separación entre toggle y dropdown */
+  z-index: 150001;
+}
+
+.quick-nav-toggle {
+  width: 44px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  border: none;
+  background: var(--color-pink);
+  color: var(--color-background);
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.quick-nav-toggle:hover,
+.quick-nav-toggle:focus {
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.quick-nav-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 150px;
+  background: var(--color-background);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(2,6,23,0.45);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform-origin: top right;
+  transition: opacity 160ms ease, transform 160ms ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.98);
+}
+
+/* cuando esté visible, el script quitará hidden y añadirá clase .open */
+.quick-nav-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Botones del menú */
+.quick-nav-item {
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.quick-nav-item:hover,
+.quick-nav-item:focus {
+  background: rgba(0,0,0,0.06);
+  outline: none;
+}
+
+/* Ajustes mobile / small */
+@media (max-width: 720px) {
+  .quick-nav-toggle { width: 40px; height: 34px; }
+  .quick-nav-menu { min-width: 140px; top: calc(100% + 8px); right: -6px; }
+}
+
+/* Si querés que el control se muestre a la izquierda en vez de la derecha (opcional) */
+/* .quick-nav-menu { left: 0; right: auto; transform-origin: top left; } */
+
+/* ---- Estilo mejorado y sutil para enlaces de proyectos ---- */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  padding-left: 18px;              /* espacio para la barra de acento */
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--color-text);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.01));
+  border: 1px solid rgba(2,6,23,0.06);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), 
+              box-shadow 220ms ease,
+              background 220ms ease,
+              border-left-color 220ms ease;
+  border-left: 4px solid transparent; /* barra de acento */
+  color: var(--color-text);
+  position: relative;
+  min-width: 220px;
+}
+
+/* indicador externo (flecha) simple y elegante */
+.project-link::after {
+  content: "↗";
+  margin-left: 8px;
+  opacity: 0.85;
+  font-size: 12px;
+  color: var(--accent, #4ea8de);
+}
+
+/* Hover / focus: sutil pop y acento visible */
+.project-link:hover,
+.project-link:focus {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.12);
+  background: linear-gradient(180deg, rgba(78,168,222,0.04), rgba(255,255,255,0.01));
+  border-left-color: var(--accent, #4ea8de);
+  outline: none;
+}
+
+/* foco accesible fuerte */
+.project-link:focus-visible {
+  outline: 3px solid rgba(78,168,222,0.16);
+  outline-offset: 4px;
+  border-left-color: var(--accent, #4ea8de);
+}
+
+/* descripción opcional (si la usás como <p class="project-link-desc">) */
+.project-link-desc {
+  margin: 6px 0 0 6px;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 720px;
+}
+
+/* Una micro-animación inicial, muy sutil, para atraer la vista 1 vez */
+@keyframes projectPop {
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-4px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+.project-link { animation: projectPop 900ms ease 0s 1; }
+
+/* Desactivar animaciones si el usuario prefiere reducido */
+@media (prefers-reduced-motion: reduce) {
+  .project-link,
+  .project-link:hover,
+  .project-link:focus,
+  .project-link::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsivo: en pantallas chicas, ocupan ancho completo */
+@media (max-width: 720px) {
+  .project-link { display: block; width: 100%; box-sizing: border-box; min-width: 0; }
+  .project-link::after { float: right; margin-right: 6px; }
+  .project-link-desc { margin-left: 0; }
 }
